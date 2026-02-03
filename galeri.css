@@ -156,31 +156,30 @@ li ul li{
 .kart1{
     width: 100%;
     height: 302px;
-    border: solid 2px red;
+    /* border: solid 2px red; */
     display: flex;
 }
 
 .kart2{
     width: 100%;
     height: 100%;
-    border: solid 2px red;
+    /* border: solid 2px red; */
 }
 
 .kart3{
     width: 100%;
     height: 100%;
-    border: solid 2px red;
+    /* border: solid 2px red; */
 }
 
 .kart4{
     width: 100%;
     height: 100%;
-    border: solid 2px red;
+    /* border: solid 2px red; */
 }
 
 .kart5{
     width: 100%;
     height: 100%;
-    border: solid 2px red;
-
+    /* border: solid 2px red; */
 }
