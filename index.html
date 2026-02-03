@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="icon" href="ico/site.ico" type="image/x-icon" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GirişSayfası</title>
+</head>
+<style>
+* {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 18px;
+            background-image: url(resim/logo1.jpeg);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        #video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        #videoIcerik {
+            position: fixed;
+            text-align: center;
+            background: none;
+            color: aqua;
+            width: 100%;
+            margin-top: 120px;
+        }
+
+        #buton {
+            width: 200px;
+            height: 120px;
+            font-size: 18px;
+            padding: 1px;
+            border: none;
+            background-color: #212121;
+            color: aqua;
+            border-radius: 20px;
+            cursor: pointer;
+            opacity: 0.6;
+        filter: alpha(opacity=80);
+        position: relative;
+        top: -60px;
+        }
+
+        button:hover{
+            background-image: url(resim/k11.jpg);
+            background-repeat: no-repeat;
+            background-attachment: cover;   
+            background-size: 100% 100%;
+            opacity: 0.0;
+            filter: alpha(opacity=00);
+        }
+
+
+        a{
+            text-decoration: none;
+            color: aqua;
+        }
+
+        a:hover{
+            color: red;
+        }
+
+
+ @import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap";
+
+.animation_text h1 {
+font-family:"Poppins",Sans-serif;
+text-align:center;
+color: aqua;
+font-size:40px;
+font-weight:400;
+line-height:40px;
+/* border: solid 2px red; */
+position: relative;
+top: -200px;
+}
+
+.animation_text h1 span {
+color: aqua;
+}
+
+@media(max-width:768px) {
+.animation_text h1 {
+font-size:30px
+}
+} 
+
+</style>
+
+ <script>
+    	var Text = function(el, toRotate, period) {
+  this.toRotate = toRotate;
+  this.el = el;
+  this.loopNum = 0;
+  this.period = parseInt(period, 10) || 2000;
+  this.txt = '';
+  this.tick();
+  this.isDeleting = false;
+};
+
+Text.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 0);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 2);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 200 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('typewrite');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-words');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new Text(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+};
+
+    </script>
+<body>
+    
+<div id="videoIcerik">
+  <video autoplay muted loop id="video">
+    <source src="video/video6.mp4" type="video/mp4">
+    Tarayıcınız HTML5 videosunu desteklemiyor.
+</video>
+<div id="videoIcerik">
+    <div class="animation_text">
+         <h1>
+             <span class="typewrite"
+                   data-period="1800"
+                   data-words='[" Merhaba LORA GARDEN Giriş Sayfasına Hoş Geldiniz "]
+                   ''[" Merhaba LORA GARDEN Giriş-Sayfasına Hoş Geldiniz "]'>
+             </span>
+         </h1>
+     </div>
+      <!-- <p>Alt içerik ve açıklamalar</p> -->
+    
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="videoIcerik">
+    
+    <!-- <p>Alt içerik ve açıklamalar</p> -->
+    <button id="buton" onclick="durBasla()">MAĞAZAYA Gitmek için 
+      <a href="msteks.html">
+        <br>
+        <br>
+      Buraya Tıklayın</a>
+    </button>
+</div>
+</body>
+</html>
